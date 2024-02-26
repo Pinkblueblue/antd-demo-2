@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import { AppstoreOutlined, MailOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Menu, Row, Col, Input,Select } from 'antd';
 import type { SearchProps } from 'antd/es/input/Search';
@@ -16,20 +16,22 @@ const ratingsOptions = ['Option 1', 'Option 2', 'Option 3'];
 
 const items: MenuProps['items'] = [
   {
-    label: 'Navigation One',
+    label: 'Contact',
     key: 'mail',
     icon: <MailOutlined />,
   },
   {
-    label: 'Navigation Two',
-    key: 'app',
-    icon: <AppstoreOutlined />,
-    disabled: true,
+    label: (
+      <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
+        Questionnaire
+      </a>
+    ),
+    key: 'alipay',
   },
   {
-    label: 'Navigation Three - Submenu',
+    label: 'Profile',
     key: 'SubMenu',
-    icon: <SettingOutlined />,
+    icon: <UserOutlined />,
     children: [
       {
         type: 'group',
@@ -45,30 +47,9 @@ const items: MenuProps['items'] = [
           },
         ],
       },
-      {
-        type: 'group',
-        label: 'Item 2',
-        children: [
-          {
-            label: 'Option 3',
-            key: 'setting:3',
-          },
-          {
-            label: 'Option 4',
-            key: 'setting:4',
-          },
-        ],
-      },
     ],
   },
-  {
-    label: (
-      <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
-        Navigation Four - Link
-      </a>
-    ),
-    key: 'alipay',
-  },
+
 ];
 
 // Filtet组件
@@ -99,7 +80,7 @@ const FilterBar = () => (
 );
 
 const App: React.FC = () => {
-  const [current, setCurrent] = useState('mail');
+  const [current, setCurrent] = useState('');
 
   const onClick: MenuProps['onClick'] = (e) => {
     console.log('click ', e);
@@ -109,7 +90,7 @@ const App: React.FC = () => {
   return (
     <div>
       {/* 菜单部分 */}
-      <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />
+      <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} style={{ display: 'flex', justifyContent: 'flex-end' }}/>
 
       {/* 搜索框和过滤器部分 */}
       <div style={{ maxWidth: '600px', margin: '0 auto', padding: '20px' }}>
