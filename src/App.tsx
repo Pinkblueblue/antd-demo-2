@@ -36,7 +36,7 @@ const items: MenuProps['items'] = [
         label: 'Item 1',
         children: [
           {
-            label: 'Option 1',
+            label: '111',
             key: 'setting:1',
           },
           {
@@ -120,7 +120,7 @@ const App: React.FC = () => {
 
         <Search
           style={{ marginBottom: '20px' }}
-          placeholder="请输入搜索内容"
+          placeholder="Please input search content"
           enterButton="Search"
           size="large"
           onSearch={value => console.log(value)}
