@@ -40,7 +40,7 @@ const items: MenuProps['items'] = [
             key: 'setting:1',
           },
           {
-            label: 'Option 2',
+            label: '2222',
             key: 'setting:2',
           },
         ],
